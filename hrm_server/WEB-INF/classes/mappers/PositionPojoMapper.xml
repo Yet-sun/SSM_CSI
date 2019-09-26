@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.PositionDao">
+    <insert id="CreatPosition" parameterType="pojo.PositionPojo">
+        insert into job_inf(id,name,detail) values (#{id},#{name},#{detail})
+    </insert>
+    <select id="GetPosition" resultType="pojo.PositionPojo">
+        select * from job_inf order by id desc limit #{offset},#{limit}
+    </select>
+    <select id="CountPosition" resultType="int">
+        select count(*) from job_inf
+    </select>
+    <select id="SearchPosition" resultType="pojo.PositionPojo">
+        select * from job_inf where name like "%"#{searchText}"%" order by id desc limit #{offset},#{limit}
+    </select>
+    <update id="UpdatePosition">
+        update job_inf set name=#{name},detail=#{detail} where id=#{id}
+    </update>
+    <delete id="DeletePosition" parameterType="java.util.List">
+        delete from job_inf where id in
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+    <select id="GetPositionList" resultType="pojo.PositionPojo">
+        select id,name from job_inf
+    </select>
+</mapper>

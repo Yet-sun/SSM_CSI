@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.BulletinDao">
+    <insert id="CreateBulletin" parameterType="pojo.BulletinPojo">
+        insert into notice_inf(id,title,content,create_date,creator) values (#{id},#{title},#{content},#{createDate},#{creator})
+    </insert>
+    <select id="GetBulletin" resultType="pojo.BulletinPojo">
+        select * from notice_inf order by id desc limit #{offset},#{limit}
+    </select>
+    <select id="CountBulletin" resultType="int">
+        select count(*) from notice_inf
+    </select>
+    <select id="SearchBulletin" resultType="pojo.BulletinPojo">
+        select * from notice_inf where title like "%"#{searchText}"%" order by id desc limit #{offset},#{limit}
+    </select>
+    <update id="UpdateBulletin">
+        update notice_inf set title=#{title},content=#{content} where id=#{id}
+    </update>
+    <delete id="DeleteBulletin" parameterType="java.util.List">
+        delete from notice_inf where id in
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+</mapper>

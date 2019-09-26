@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.DepartmentDao">
+    <insert id="CreateDepartment" parameterType="pojo.DepartmentPojo">
+        insert into dept_inf(id,name,detail) values (#{id},#{name},#{detail})
+    </insert>
+    <select id="GetDepartment" resultType="pojo.DepartmentPojo">
+        select * from dept_inf order by id desc limit #{offset},#{limit}
+    </select>
+    <select id="CountDepartment" resultType="int">
+        select count(*) from dept_inf
+    </select>
+    <select id="GetDepartmentBySearch" resultType="pojo.DepartmentPojo">
+        select * from dept_inf where name like "%"#{searchText}"%" order by id desc limit #{offset},#{limit}
+    </select>
+    <update id="UpdateDepartment">
+        update dept_inf set name=#{name},detail=#{detail} where id=#{id}
+    </update>
+    <delete id="DeleteDepartment" parameterType="java.util.List">
+        delete from dept_inf where id in
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+    <select id="GetDepartmentList" resultType="pojo.DepartmentPojo">
+        select id,name from dept_inf
+    </select>
+</mapper>

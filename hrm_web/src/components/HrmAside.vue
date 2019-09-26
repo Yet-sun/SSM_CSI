@@ -1,0 +1,121 @@
+<template>
+  <div>
+    <el-menu>
+      <el-submenu v-for="(menu,i) in menuList" :key="i" :index=i.toString()>
+        <template slot="title">
+          <i :class=menu.icon></i>
+          <span>{{menu.name}}</span>
+        </template>
+        <el-menu-item-group>
+          <el-menu-item v-for="(subMenu,j) in menu.subMenu" :key="j" :index="i.toString()+'-'+j.toString()" v-on:click="RouterGo(subMenu.router)">{{subMenu.name}}</el-menu-item>
+        </el-menu-item-group>
+      </el-submenu>
+    </el-menu>
+  </div>
+</template>
+
+<script>
+    export default {
+        name: "HrmAside",
+        data(){
+            return{
+                menuList:[
+                    {
+                        name:'用户管理',
+                        icon:'el-icon-user',
+                        subMenu:[
+                            {
+                                name:'用户查询',
+                                router:'/user'
+                            },
+                            {
+                                name:'添加用户',
+                                router:'/useredit'
+                            }
+                        ]
+                    },
+                    {
+                        name:'部门管理',
+                        icon:'el-icon-menu',
+                        subMenu:[
+                            {
+                                name:'部门查询',
+                                router:'/department'
+                            },
+                            {
+                                name:'添加部门',
+                                router:'/departmentedit'
+                            }
+                        ]
+                    },
+                    {
+                        name:'职位管理',
+                        icon:'el-icon-news',
+                        subMenu:[
+                            {
+                                name:'职位查询',
+                                router:'/position'
+                            },
+                            {
+                                name:'添加职位',
+                                router:'/positionedit'
+                            }
+                        ]
+                    },
+                    {
+                        name:'员工管理',
+                        icon:'el-icon-service',
+                        subMenu:[
+                            {
+                                name:'员工查询',
+                                router:'/staff'
+                            },
+                            {
+                                name:'添加员工',
+                                router:'/staffedit'
+                            }
+                        ]
+                    },
+                    {
+                        name:'公告管理',
+                        icon:'el-icon-message',
+                        subMenu:[
+                            {
+                                name:'公告查询',
+                                router:'/bulletin'
+                            },
+                            {
+                                name:'添加公告',
+                                router:'/bulletinedit'
+                            }
+                        ]
+                    },
+                    {
+                        name:'下载中心',
+                        icon:'el-icon-tickets',
+                        subMenu:[
+                            {
+                                name:'文档查询',
+                                router:'/file'
+                            },
+                            {
+                                name:'上传文档',
+                                router:'/fileedit'
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        methods:{
+            RouterGo(routerPath){
+                this.$router.push({path:routerPath})
+                this.$store.commit("AddTabs",{title:routerPath,name:routerPath})
+            }
+        }
+    }
+</script>
+
+<style scoped>
+
+</style>

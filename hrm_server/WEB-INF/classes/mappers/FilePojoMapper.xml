@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.FileDao">
+    <insert id="CreateFile" parameterType="pojo.FilePojo">
+        insert into document_inf(id,title,name,url,create_date,creator,detail) values (#{id},#{title},#{name},#{url},#{createDate},#{creator},#{detail})
+    </insert>
+    <select id="GetFile" resultType="pojo.FilePojo">
+        select * from document_inf order by id desc limit #{offset},#{limit}
+    </select>
+    <select id="CountFile" resultType="int">
+        select count(*) from document_inf
+    </select>
+    <select id="SearchFile" resultType="pojo.FilePojo">
+        select * from document_inf where title like "%"#{searchText}"%" order by id desc limit #{offset},#{limit}
+    </select>
+
+    <update id="UpdateFile">
+        update document_inf set title=#{title},detail=#{detail},url=#{url} where id=#{id}
+    </update>
+
+    <delete id="DeleteFile" parameterType="java.util.List">
+        delete from document_inf where id in
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+</mapper>
