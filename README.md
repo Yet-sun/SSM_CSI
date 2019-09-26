@@ -14,7 +14,7 @@
 
 ### 业务功能
 
-![](https://github.com/Yet-sun/SSM_CSI/blob/master/picture/业务功能.png)
+![业务功能.png](https://github.com/Yet-sun/SSM_CSI/blob/master/picture/业务功能.png)
 
 ### 功能
 
@@ -28,13 +28,13 @@
 
 ### 部分页面
 
-![](https://github.com/Yet-sun/SSM_CSI/blob/master/picture/1.png)
+![pic1](https://github.com/Yet-sun/SSM_CSI/blob/master/picture/1.png)
 
-![](https://github.com/Yet-sun/SSM_CSI/blob/master/picture/2.png)
+![pic2](https://github.com/Yet-sun/SSM_CSI/blob/master/picture/2.png)
 
-![](https://github.com/Yet-sun/SSM_CSI/blob/master/picture/3.png)
+![pic3](https://github.com/Yet-sun/SSM_CSI/blob/master/picture/3.png)
 
-![](https://github.com/Yet-sun/SSM_CSI/blob/master/picture/4.png)
+![pic4](https://github.com/Yet-sun/SSM_CSI/blob/master/picture/4.png)
 
 ### 总结
 
