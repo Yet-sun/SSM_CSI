@@ -2,8 +2,6 @@
 
 ## SSM实现增删改查（前后端分离）开发 (:speech_balloon: pause update)
 
-***
-
 ### 核心技术栈
 
 ```·
@@ -31,11 +29,11 @@
 ### 部分页面
 
 ![](https://github.com/Yet-sun/SSM_CSI/blob/master/picture/1.png)
-***
+
 ![](https://github.com/Yet-sun/SSM_CSI/blob/master/picture/2.png)
-***
+
 ![](https://github.com/Yet-sun/SSM_CSI/blob/master/picture/3.png)
-***
+
 ![](https://github.com/Yet-sun/SSM_CSI/blob/master/picture/4.png)
 
 ### 总结
